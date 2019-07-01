@@ -7,6 +7,7 @@
 
 
         <form action="/" method="POST" class="form-group container row">{% csrf_token %}
+            <input type="hidden" name="isDelete" value="false" />
             <div class="col-lg-3">
                 <input type="text" name="author" class="form-control" placeholder="input author"/>
             </div>
@@ -26,7 +27,6 @@
         {% for item in datas %}
             <h4>{{ item.author }}</h4>
             <p>{{ item.content }}</p>
-            <p>{{ item.publishedAt }}</p>
         {% endfor %}
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
