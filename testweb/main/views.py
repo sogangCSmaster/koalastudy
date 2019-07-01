@@ -16,7 +16,6 @@ datas = [
 
 def main(request):
     if request.method=="POST":
-        author = request.POST['author']
         content = request.POST['content']
         currentTime = time.time()
 
