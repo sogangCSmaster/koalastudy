@@ -1,13 +1,22 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+datas = [
+    {
+        'author': '코알라',
+        'content': '우리는 코알라에서 웹 코딩을 배우고 있습니다.',
+        'publishedAt': '2019-07-01'
+    }
+]
+
+
 def main(request):
-    if request.GET.get('username'):
-        username = request.GET.get('username')
-        tempText = "안녕하세요. " + request.GET.get('username') + "님!"
-
-        study = "코알라"
-
-        return render(request, 'mainfolder/index.html',{'username': username, 'study': study})
-
-    return render(request, 'mainfolder/index.html', {})
+    if request.method=="POST":
+        author = request.POST['author']
+        content = request.POST['content']
+        datas.append({
+            'author': author,
+            'content': content,
+            'publishedAt': '2019-07-02'
+        })
+    return render(request, 'mainfolder/index.html', {'datas': datas})
