@@ -27,4 +27,4 @@ def main(request):
             'publishedAt': currentTime
         })
 
-    return render(request, 'mainfolder/index.html', {'datas': datas})
+    return render(request, 'mainfolder/index.html', {'datas': reversed(datas)})
