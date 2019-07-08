@@ -16,6 +16,7 @@ datas = [
 
 def main(request):
     if request.method=="POST":
+        print("POST method")
         content = request.POST['content']
         currentTime = time.time()
 
